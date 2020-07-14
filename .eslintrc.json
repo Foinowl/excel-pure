@@ -7,7 +7,11 @@
     },
     "rules": {
         "semi":"off",
-        "arrow-parens":"off"
+        "arrow-parens":"off",
+        "linebreak-style": "off",
+        "operator-linebreak":"off",
+        "require-jsdoc":"off",
+        "comma-dangle":"off"
     },
     "extends": ["eslint:recommended", "google"]
 }
