@@ -1,9 +1,10 @@
-import { ExcelComponent } from "../../core/ExcelComponent";
-import { $ } from "../../core/dom";
+/* eslint-disable max-len */
+import {ExcelComponent} from '../../core/ExcelComponent';
+import {$} from '../../core/dom';
 
 export class Formula extends ExcelComponent {
     static className = 'excel__formula'
-  
+
     constructor($root, options) {
       super($root, {
         name: 'Formula',
@@ -12,7 +13,7 @@ export class Formula extends ExcelComponent {
         ...options
       })
     }
-  
+
     toHTML() {
       return `
         <div class="info">fx</div>
@@ -22,9 +23,9 @@ export class Formula extends ExcelComponent {
 
     init() {
       super.init()
-  
+
       this.$formula = this.$root.find('#formula')
-  
+
       this.$on('table:select', $cell => {
         this.$formula.text($cell.data.value)
       })
@@ -33,13 +34,13 @@ export class Formula extends ExcelComponent {
     storeChanged({currentText}) {
       this.$formula.text(currentText)
     }
-  
+
     onInput(event) {
       const text = $(event.target).text()
       console.log('text from formula', text)
       this.$emit('formula:input', text)
     }
-  
+
     onKeydown(event) {
       const keys = ['Enter', 'Tab']
       if (keys.includes(event.key)) {
@@ -47,5 +48,4 @@ export class Formula extends ExcelComponent {
         this.$emit('formula:done')
       }
     }
-  }
-  
+}
