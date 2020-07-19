@@ -1,7 +1,7 @@
 import {$} from '../core/dom';
-import {createRecordsTable} from './dashboard.function';
+import {createRecordsTable} from '../shared/dashboard.function';
 
-const {Page} = require('../core/Page');
+const {Page} = require('../core/page/Page');
 
 export class DashboardPage extends Page {
   getRoot() {

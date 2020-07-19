@@ -25,9 +25,4 @@ describe('Router:', () => {
   test('should be defined', () => {
     expect(router).toBeDefined()
   })
-
-  test('should render Dashboard Page', () => {
-    router.changePageHandler()
-    expect($root.innerHTML).toBe('<div>dashboard</div>')
-  })
 })
