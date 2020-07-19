@@ -1,12 +1,12 @@
-import {$} from "../../core/dom"
-import { createToolbar } from "./toolbar.template";
-import { ExcelStateCompanent } from "../../core/ExcelStateComponent";
-import { defaulStyles } from "../../constants";
+import {$} from '../../core/dom'
+import {createToolbar} from './toolbar.template';
+import {ExcelStateCompanent} from '../../core/ExcelStateComponent';
+import {defaulStyles} from '../../constants';
 
-export class Toolbar extends ExcelStateCompanent{
+export class Toolbar extends ExcelStateCompanent {
     static className = 'excel__toolbar'
 
-    constructor($root, options){
+    constructor($root, options) {
       super($root, {
         name: 'Toolbar',
         listeners: ['click'],
@@ -15,15 +15,15 @@ export class Toolbar extends ExcelStateCompanent{
       })
     }
 
-    prepare(){
+    prepare() {
       this.initState(defaulStyles)
     }
 
-    get template(){
+    get template() {
       return createToolbar(this.state)
     }
 
-    toHTML(){
+    toHTML() {
       return this.template
     }
 
@@ -31,9 +31,9 @@ export class Toolbar extends ExcelStateCompanent{
       this.setState(changes.currentStyles)
     }
 
-    onClick(event){
+    onClick(event) {
       const $target = $(event.target)
-      if ($target.data.type === 'button'){
+      if ($target.data.type === 'button') {
         const value = JSON.parse($target.data.value)
         this.$emit('toolbar:applyStyle', value)
         console.log(this.state)
